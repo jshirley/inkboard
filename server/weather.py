@@ -15,7 +15,7 @@ class WeatherClient:
 
     def load(self, api_key):
         self.data = requests.get(
-            f"https://api.openweathermap.org/data/2.5/onecall?lat={self.latitude}&lon={self.longitude}&exclude=minutely&units=metric&appid={api_key}"
+            f"https://api.openweathermap.org/data/3.0/onecall?lat={self.latitude}&lon={self.longitude}&exclude=minutely&units=metric&appid={api_key}"
         ).json()
         self.current_time = self.data["current"]["dt"]
 

@@ -18,17 +18,25 @@ def index():
     if request.args.get("style", "2") == "7":
         composer = ImageComposer7(
             api_key,
-            lat=request.args.get("latitude", "39.75"),
-            long=request.args.get("longitude", "-104.90"),
-            timezone=request.args.get("timezone", "America/Denver"),
+            lat=request.args.get("latitude", "36.05"),
+            long=request.args.get("longitude", "-114.80"),
+            timezone=request.args.get("timezone", "America/Los_Angeles"),
+        )
+        output = composer.render()
+    elif request.args.get("style", "2") == "8":
+        composer = ImageComposer8(
+            api_key,
+            lat=request.args.get("latitude", "36.05"),
+            long=request.args.get("longitude", "-114.80"),
+            timezone=request.args.get("timezone", "America/Los_Angeles"),
         )
         output = composer.render()
     else:
         composer = ImageComposer2(
             api_key,
-            lat=request.args.get("latitude", "39.75"),
-            long=request.args.get("longitude", "-104.90"),
-            timezone=request.args.get("timezone", "America/Denver"),
+            lat=request.args.get("latitude", "36.05"),
+            long=request.args.get("longitude", "-114.80"),
+            timezone=request.args.get("timezone", "America/Los_Angeles"),
         )
         image = composer.render()
         output = BytesIO()
